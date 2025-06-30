@@ -1,0 +1,23 @@
+<h2>{{ isEdit ? 'Editar' : 'Novo' }} Usuário</h2>
+
+<form (ngSubmit)="save()">
+  <label>Usuário:
+    <input [(ngModel)]="user.username" name="username" required>
+  </label>
+
+  <label>Senha:
+    <input [(ngModel)]="user.password" name="password" type="password" required>
+  </label>
+
+  <label>Departamento:
+    <input [(ngModel)]="user.department" name="department">
+  </label>
+
+  <label>
+    <input [(ngModel)]="user.active" name="active" type="checkbox">
+    Ativo?
+  </label>
+
+  <button type="submit">{{ isEdit ? 'Atualizar' : 'Criar' }}</button>
+  <button routerLink="/">Cancelar</button>
+</form>

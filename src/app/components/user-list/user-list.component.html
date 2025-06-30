@@ -1,0 +1,22 @@
+<div class="actions">
+  <button routerLink="/new">Novo Usuário</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Usuário</th><th>Depto</th><th>Ativo?</th><th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of users">
+      <td>{{u.username}}</td>
+      <td>{{u.department}}</td>
+      <td>{{u.active ? 'Sim' : 'Não'}}</td>
+      <td>
+        <button (click)="edit(u)">✏️</button>
+        <button (click)="delete(u)">🗑️</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
