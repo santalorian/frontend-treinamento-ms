@@ -1,22 +1,29 @@
-<div class="actions">
-  <button routerLink="/new">Novo Usuário</button>
+<div class="user-list-container lqd-container lqd-py-40 lqd-flex lqd-justify-center lqd-items-center">
+  <div class="lqd-bg-white lqd-shadow-lg lqd-rounded-lg lqd-p-32 lqd-w-full lqd-max-w-2xl">
+    <div class="lqd-flex lqd-justify-between lqd-items-center lqd-mb-24">
+      <h2 class="lqd-text-2xl lqd-font-bold">Usuários</h2>
+      <button routerLink="/new" class="lqd-btn lqd-btn-primary lqd-px-24 lqd-py-10 lqd-rounded-md">Novo Usuário</button>
+    </div>
+    <table class="lqd-w-full lqd-mb-0 lqd-table-auto lqd-border-collapse">
+      <thead>
+        <tr class="lqd-bg-gray-100">
+          <th class="lqd-py-8 lqd-px-12 lqd-text-left">Usuário</th>
+          <th class="lqd-py-8 lqd-px-12 lqd-text-left">Depto</th>
+          <th class="lqd-py-8 lqd-px-12 lqd-text-left">Ativo?</th>
+          <th class="lqd-py-8 lqd-px-12 lqd-text-left">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of users" class="lqd-border-b lqd-border-gray-200 hover:lqd-bg-gray-50">
+          <td class="lqd-py-8 lqd-px-12">{{u.username}}</td>
+          <td class="lqd-py-8 lqd-px-12">{{u.department}}</td>
+          <td class="lqd-py-8 lqd-px-12">{{u.active ? 'Sim' : 'Não'}}</td>
+          <td class="lqd-py-8 lqd-px-12">
+            <button (click)="edit(u)" class="lqd-btn lqd-btn-secondary lqd-px-16 lqd-py-6 lqd-rounded-md lqd-mr-8">✏️</button>
+            <button (click)="delete(u)" class="lqd-btn lqd-btn-secondary lqd-px-16 lqd-py-6 lqd-rounded-md">🗑️</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Usuário</th><th>Depto</th><th>Ativo?</th><th>Ações</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let u of users">
-      <td>{{u.username}}</td>
-      <td>{{u.department}}</td>
-      <td>{{u.active ? 'Sim' : 'Não'}}</td>
-      <td>
-        <button (click)="edit(u)">✏️</button>
-        <button (click)="delete(u)">🗑️</button>
-      </td>
-    </tr>
-  </tbody>
-</table>

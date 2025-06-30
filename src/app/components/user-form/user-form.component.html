@@ -1,23 +1,27 @@
-<h2>{{ isEdit ? 'Editar' : 'Novo' }} Usuário</h2>
-
-<form (ngSubmit)="save()">
-  <label>Usuário:
-    <input [(ngModel)]="user.username" name="username" required>
-  </label>
-
-  <label>Senha:
-    <input [(ngModel)]="user.password" name="password" type="password" required>
-  </label>
-
-  <label>Departamento:
-    <input [(ngModel)]="user.department" name="department">
-  </label>
-
-  <label>
-    <input [(ngModel)]="user.active" name="active" type="checkbox">
-    Ativo?
-  </label>
-
-  <button type="submit">{{ isEdit ? 'Atualizar' : 'Criar' }}</button>
-  <button routerLink="/">Cancelar</button>
-</form>
+<div class="user-form-container lqd-container lqd-py-40 lqd-flex lqd-justify-center lqd-items-center">
+  <div class="lqd-bg-white lqd-shadow-lg lqd-rounded-lg lqd-p-32 lqd-w-full lqd-max-w-md">
+    <h2 class="lqd-text-2xl lqd-font-bold lqd-mb-24 lqd-text-center">{{ isEdit ? 'Editar' : 'Novo' }} Usuário</h2>
+    <form (ngSubmit)="save()" class="user-form lqd-space-y-20">
+      <div class="form-group lqd-space-y-8">
+        <label for="username" class="lqd-block lqd-font-semibold">Usuário:</label>
+        <input id="username" [(ngModel)]="user.username" name="username" required placeholder="Digite o nome do usuário" class="lqd-input lqd-w-full lqd-py-8 lqd-px-12 lqd-border lqd-rounded-md">
+      </div>
+      <div class="form-group lqd-space-y-8">
+        <label for="password" class="lqd-block lqd-font-semibold">Senha:</label>
+        <input id="password" [(ngModel)]="user.password" name="password" type="password" required placeholder="Digite a senha" class="lqd-input lqd-w-full lqd-py-8 lqd-px-12 lqd-border lqd-rounded-md">
+      </div>
+      <div class="form-group lqd-space-y-8">
+        <label for="department" class="lqd-block lqd-font-semibold">Departamento:</label>
+        <input id="department" [(ngModel)]="user.department" name="department" placeholder="Digite o departamento" class="lqd-input lqd-w-full lqd-py-8 lqd-px-12 lqd-border lqd-rounded-md">
+      </div>
+      <div class="form-group checkbox-group lqd-flex lqd-items-center lqd-space-x-8">
+        <input id="active" [(ngModel)]="user.active" name="active" type="checkbox" class="lqd-checkbox">
+        <label for="active" class="lqd-font-semibold">Ativo?</label>
+      </div>
+      <div class="form-actions lqd-flex lqd-justify-between lqd-mt-24">
+        <button type="submit" class="lqd-btn lqd-btn-primary lqd-px-24 lqd-py-10 lqd-rounded-md">{{ isEdit ? 'Atualizar' : 'Criar' }}</button>
+        <button type="button" class="lqd-btn lqd-btn-secondary lqd-px-24 lqd-py-10 lqd-rounded-md" (click)="cancel()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -35,4 +35,7 @@ export class UserFormComponent implements OnInit {
       : this.svc.create(this.user);
     op.subscribe(() => this.router.navigate(['/']));
   }
+  cancel() {
+    this.router.navigate(['/']);
+  }
 }
